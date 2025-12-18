@@ -61,14 +61,15 @@ class BotWorker(QThread):
 
                 # Commands
                 if text.startswith('/'):
-                    cmd = text.split()[0].lstrip('/')
+                    # Keep the leading slash in the command key (commands are stored like '/start')
+                    cmd = text.split()[0]
                     resp = (self.commands or {}).get(cmd)
                     if resp:
-                        self.log_signal.emit("command", f"[{self.bot_name}] Command /{cmd} from {getattr(message.from_user, 'id', 'unknown')}")
+                        self.log_signal.emit("command", f"[{self.bot_name}] Command {cmd} from {getattr(message.from_user, 'id', 'unknown')}")
                         try:
                             self.bot.reply_to(message, resp)
                         except Exception as e:
-                            self.log_signal.emit("error", f"[{self.bot_name}] Failed to reply to command /{cmd}: {e}")
+                            self.log_signal.emit("error", f"[{self.bot_name}] Failed to reply to command {cmd}: {e}")
                         return
 
                 # Auto-replies
