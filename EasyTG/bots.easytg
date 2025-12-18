@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "bots": {
+    "Tgtest": {
+      "token": "8329749561:AAEEZSmGZL2oPEI9YtxK_tTYoIibC7GD6X0",
+      "admin_id": 6361942684,
+      "status": "Online",
+      "start_time": "2025-12-18T13:30:02.068151",
+      "uptime": 0,
+      "webhook_url": null,
+      "auto_replies": {},
+      "message_filters": {
+        "spam": false,
+        "bad_words": false
+      },
+      "commands": {
+        "/meow": "fefefe"
+      }
+    }
+  },
+  "settings": {
+    "auto_start": true,
+    "log_level": 3,
+    "update_interval": 5
+  }
+}
